@@ -57,6 +57,11 @@ class Object3D:
         ''''''
         self.name = name
         self.object.name = name
+        
+    def set_rotation(self, rotation):
+        ''''''
+        self.rotation = rotation
+        self.object.rotation_euler = rotation   
 
     def became_the_child_of(self, parent_obj):
         ''''''
@@ -67,7 +72,7 @@ class Object3D:
             au.activate_object(parent_obj)
         self.select_object()
         bpy.ops.object.parent_no_inverse_set(keep_transform=True)
-        
+
     def create_emission_material(self, material_name='emission_material', emission_color=(1, 1, 1, 1), strength=1):
         # Create a new material
         mat = bpy.data.materials.new(name=material_name)
@@ -110,3 +115,15 @@ class Object3D:
         lamp = Lamp(name, lamp_type, energy, color, shadow, self.location, self.scale, self.rotation)
         lamp.became_the_child_of(self.object)
         return lamp
+    
+    def set_shadow_mode(self, mode):
+        '''Set shadow mode'''
+        self.object.data.shadow = mode
+        self.object.active_material.shadow_method = 'NONE'
+        
+    
+    '''Animation'''
+    def keyframe_insert(self, data_path, frame):
+        '''Keyframe insert'''
+        self.object.keyframe_insert(data_path=data_path, frame=frame)
+    

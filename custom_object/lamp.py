@@ -29,5 +29,6 @@ class Lamp(Object3D):
         )
         self.object = bpy.context.object
         self.object.data.energy = self.energy
+        bpy.context.object.data.color = (1, 0.752942, 0.0595115)
         # self.object.data.color = self.color
         # self.object.data.shadow = self.shadow
