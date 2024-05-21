@@ -1,14 +1,15 @@
 import bpy
-
-import custom_object.aditional_utility
-import custom_object.object3D
-import custom_object.aditional_utility as au
-
 from importlib import reload
-reload(custom_object.object3D)
-reload(custom_object.aditional_utility)
 
-from custom_object.object3D import Object3D
+
+import library_object.object3D
+import library_object.aditional_utility as au
+
+reload(au)
+reload(library_object.object3D)
+
+from library_object.object3D import Object3D
+
 
 
 class Lamp(Object3D):
@@ -19,7 +20,7 @@ class Lamp(Object3D):
         self.shadow = shadow
         super().__init__(name, location, scale, rotation)
         self.create_object()
-        
+
     def create_object(self):
         bpy.ops.object.light_add(
             type=self.lamp_type,
