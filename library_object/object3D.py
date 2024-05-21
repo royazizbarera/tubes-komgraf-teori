@@ -3,19 +3,19 @@ import bpy
 from importlib import reload
 
 
-# import library_object.lamp
+import library_object.lamp
 import library_object.modifier
 import library_object.aditional_utility as au
 import library_object.material
 import library_object.animation
 
-# reload(library_object.lamp)
+reload(library_object.lamp)
 reload(library_object.modifier)
 reload(au)
 reload(library_object.material)
 reload(library_object.animation)
 
-# from library_object.lamp import Lamp
+from library_object.lamp import Lamp
 from library_object.modifier import Modifier
 from library_object.material import Material
 from library_object.animation import Animation
@@ -97,10 +97,10 @@ class Object3D:
         '''Add lamp inside object'''
         # au.deselect_all()
         # au.deactivate_all()
-        # lamp = Lamp(name, lamp_type, energy, color, shadow,
-        #             self.location, self.scale, self.rotation)
-        # lamp.became_the_child_of(self.object)
-        # return lamp
+        lamp = Lamp(name, lamp_type, energy, color, shadow,
+                    self.location, self.scale, self.rotation)
+        lamp.became_the_child_of(self.object)
+        return lamp
 
     ''' End Aditional Method '''
 

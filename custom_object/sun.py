@@ -22,6 +22,6 @@ class Sun():
         self.sun = UvSphere(self.name, scale=self.scale,
                             location=self.location, rotation=self.rotation)
         self.sun.shade_smooth()
-        # self.sun.create_emission_material(emission_color=self.color)
+        self.sun.material.create_emission_material(emission_color=self.color)
         self.sun.add_lamp_inside(lamp_type='SUN', energy=5, color=self.color)
-        # self.sun.set_shadow_mode('NONE')
+        self.sun.set_shadow_mode('NONE')

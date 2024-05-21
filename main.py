@@ -61,7 +61,6 @@ def poros_animation():
     # for i in range(rotate_times):
     poros.set_rotation((0, 0, 0))
     poros.animation.keyframe_insert(data_path="rotation_euler", frame=min_frame)
-    print(poros.rotation)
     poros.set_rotation((radians(frame_per_rotate), 0, 0))
     poros.animation.keyframe_insert(data_path="rotation_euler", frame=max_frame)
 
