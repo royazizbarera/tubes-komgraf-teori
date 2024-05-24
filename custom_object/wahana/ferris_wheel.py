@@ -10,15 +10,12 @@ from importlib import reload
 import bpy
 from math import radians
 
-import import_object.import_object
 import library_object.aditional_utility as au
 from library_object.object3D import Object3D
 
-reload(import_object.import_object)
 reload(au)
 
 
-from import_object.import_object import import_obj
 
 class FerrisWheel:
     def __init__(self) -> None:
@@ -28,14 +25,14 @@ class FerrisWheel:
     def create_object(self):
         # ferris_wheel = import_object_obj('model/obj/ferris.obj')
         # NewObject('ferris_wheel', ferris_wheel, (0, 0, 0), (1, 1, 1), (0, 0, 0))
-        import_obj(
-            filepath="D:\\1Kuliah\\Semester 4\\Komputer Grafik\\Tubes Teori\\tornado\\model\\obj\\ferris\\ferris_wheel.obj", 
-            directory="D:\\1Kuliah\\Semester 4\\Komputer Grafik\\Tubes Teori\\tornado\\model\\obj\\ferris\\", 
+        au.import_obj(
+            filepath="model\\obj\\ferris\\ferris_wheel.obj", 
+            directory="model\\obj\\ferris\\", 
             files=[{"name":"ferris_wheel.obj", "name":"ferris_wheel.obj"}]
         )
-        import_obj(
-            filepath="D:\\1Kuliah\\Semester 4\\Komputer Grafik\\Tubes Teori\\tornado\\model\\obj\\ferris\\kabin_ferris_wheel.obj", 
-            directory="D:\\1Kuliah\\Semester 4\\Komputer Grafik\\Tubes Teori\\tornado\\model\\obj\\ferris\\", 
+        au.import_obj(
+            filepath="model\\obj\\ferris\\kabin_ferris_wheel.obj", 
+            directory="model\\obj\\ferris\\", 
             files=[{"name":"kabin_ferris_wheel.obj", "name":"kabin_ferris_wheel.obj"}]
         )
         au.deselect_all()

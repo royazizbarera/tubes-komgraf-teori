@@ -209,3 +209,6 @@ def duplicate_object(obj):
     activate_object(obj)
     bpy.ops.object.duplicate()
     return bpy.context.object
+
+def import_obj(filepath, directory, files):
+    bpy.ops.wm.obj_import(filepath=filepath, directory=directory, files=files)
