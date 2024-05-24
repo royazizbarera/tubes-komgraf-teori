@@ -1,0 +1,1 @@
+Jika error coba hapus import Object3D yang ada di self Object3D kaya di file Modifier, Texture, Material, Animation

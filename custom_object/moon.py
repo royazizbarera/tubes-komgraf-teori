@@ -1,12 +1,13 @@
 # ===================================
-
 from importlib import reload
 
 import library_object.uv_sphere
+import library_object.lamp
 
 reload(library_object.uv_sphere)
+reload(library_object.lamp)
 from library_object.uv_sphere import UvSphere
-
+from library_object.lamp import Lamp
 
 
 class Moon():
@@ -19,10 +20,13 @@ class Moon():
         self.create_object()
 
     def create_object(self):
-        self.sun = UvSphere(self.name, scale=self.scale,
+        self.moon = UvSphere(self.name, scale=self.scale,
                             location=self.location, rotation=self.rotation)
-        self.sun.modifier.add_subdivision_surface(levels=2, render_levels=2)
-        self.sun.shade_smooth()
-        self.sun.material.create_emission_material(emission_color=self.color)
-        self.sun.add_lamp_inside(lamp_type='SUN', energy=5, color=self.color)
-        self.sun.set_shadow_mode('NONE')
+        self.moon.modifier.add_subdivision_surface(levels=2, render_levels=2)
+        self.moon.shade_smooth()
+        self.moon.material.create_emission_material(emission_color=self.color)
+        self.moon.set_shadow_mode('NONE')
+        
+        self.lamp = Lamp(self.name, lamp_type='SUN', energy=5, color=self.color, shadow=False,
+                    location=self.location, scale=self.scale, rotation=self.rotation)
+        self.lamp.became_the_child_of(self.moon.object)

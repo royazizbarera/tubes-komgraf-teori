@@ -8,3 +8,6 @@ def import_object_obj(file_path):
     au.deselect_all()
     bpy.ops.import_scene.obj(filepath=file_path)
     return bpy.context.object
+
+def import_obj(filepath, directory, files):
+    bpy.ops.wm.obj_import(filepath=filepath, directory=directory, files=files)

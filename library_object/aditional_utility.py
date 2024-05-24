@@ -196,3 +196,16 @@ def create_empty_cube(name, location, scale=(1, 1, 1), rotation=(0, 0, 0)):
     '''
     bpy.ops.object.empty_add(type='CUBE', align='WORLD', location=location)
     return set_parameter_new_object(bpy.context.object, name, location, scale, rotation)
+
+
+def duplicate_object(obj):
+    '''
+    Menduplikasi object \n
+    Contoh penggunaan: duplicate_object(obj=alas.object, name='alas', location=(0, -8.5, 10), scale=(1, 0.5, 10))
+    '''
+    deactive_all()
+    deselect_all()
+    obj.select_set(True)
+    activate_object(obj)
+    bpy.ops.object.duplicate()
+    return bpy.context.object
